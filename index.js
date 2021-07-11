@@ -1,5 +1,31 @@
-document.addEventListener("keypress",function (event){
-    switch (event["key"]) {
+
+let target = document.querySelectorAll(".drum");
+
+for (let i = 0 ; i<target.length ;i++){
+
+    target[i].addEventListener("click",function (){
+
+
+        this.classList.toggle("whitetext")
+        playSound(this.innerHTML)
+
+        
+    });
+}
+
+
+
+
+document.addEventListener("keypress", function (event){
+    playSound(event.key);
+});
+
+
+
+
+function playSound(key){
+
+    switch (key) {
         case "w":
             var crash = new Audio("sounds/crash.mp3");
             crash.play();
@@ -39,4 +65,4 @@ document.addEventListener("keypress",function (event){
             console.log(this.innerHTML)
             break;
     }
-});
+}
